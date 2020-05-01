@@ -14,6 +14,7 @@ app.use((req, res, next) => {
 });
 
 app.post("/fetch:country", (req, res) => {
+  console.log("endpoint reached");
   fetch(`http://corona-api.com/countries/${req.params.country}`)
     .then((response) => response.json())
     .then((json) => {
