@@ -23,7 +23,6 @@ app.get("/fetch:country", (req, res) => {
   fetch(`http://corona-api.com/countries/US`)
     .then((response) => response.json())
     .then((json) => {
-      console.log(json);
       return res.send(json);
     });
 });
