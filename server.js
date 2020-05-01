@@ -18,13 +18,14 @@ app.get("/", (req, res) => {
 });
 
 app.get("/fetch:country", (req, res) => {
-  console.log("endpoint reached");
-  fetch(`http://corona-api.com/countries/${req.params.country}`)
-    .then((response) => response.json())
-    .then((json) => {
-      console.log(json);
-      return res.send(json);
-    });
+  return res.send({ msg: "working" });
+  // console.log("endpoint reached");
+  // fetch(`http://corona-api.com/countries/${req.params.country}`)
+  //   .then((response) => response.json())
+  //   .then((json) => {
+  //     console.log(json);
+  //     return res.send(json);
+  //   });
 });
 
 let port = process.env.PORT;
