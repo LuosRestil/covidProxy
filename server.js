@@ -16,7 +16,10 @@ app.use((req, res, next) => {
 app.post("/fetch:country", cors(corsOptions), (req, res) => {
   fetch(`http://corona-api.com/countries/${req.params.country}`)
     .then((response) => response.json())
-    .then(res.send(json));
+    .then((json) => {
+      console.log(json);
+      return res.send(json);
+    });
 });
 
 let port = process.env.PORT;
