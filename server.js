@@ -9,7 +9,7 @@ app.use(
 );
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "localhost:5500");
+  res.header("Access-Control-Allow-Origin", "*");
   next();
 });
 
