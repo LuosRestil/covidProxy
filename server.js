@@ -13,7 +13,11 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/fetch:country", (req, res) => {
+app.get("/", (req, res) => {
+  return res.send({ error: "not found" });
+});
+
+app.get("/fetch:country", (req, res) => {
   console.log("endpoint reached");
   fetch(`http://corona-api.com/countries/${req.params.country}`)
     .then((response) => response.json())
