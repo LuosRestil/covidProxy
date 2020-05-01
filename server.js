@@ -13,7 +13,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/fetch:country", cors(corsOptions), (req, res) => {
+app.post("/fetch:country", (req, res) => {
   fetch(`http://corona-api.com/countries/${req.params.country}`)
     .then((response) => response.json())
     .then((json) => {
