@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const fetch = require("node-fetch");
 
 app.use(
   bodyParser.urlencoded({
@@ -18,14 +19,13 @@ app.get("/", (req, res) => {
 });
 
 app.get("/fetch:country", (req, res) => {
-  return res.send({ msg: "working" });
-  // console.log("endpoint reached");
-  // fetch(`http://corona-api.com/countries/${req.params.country}`)
-  //   .then((response) => response.json())
-  //   .then((json) => {
-  //     console.log(json);
-  //     return res.send(json);
-  //   });
+  console.log("endpoint reached");
+  fetch(`http://corona-api.com/countries/${req.params.country}`)
+    .then((response) => response.json())
+    .then((json) => {
+      console.log(json);
+      return res.send(json);
+    });
 });
 
 let port = process.env.PORT;
