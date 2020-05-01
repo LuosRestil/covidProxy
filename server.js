@@ -19,10 +19,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/fetch:country", (req, res) => {
-  console.log("endpoint reached");
-  fetch(
-    `http://corona-api.com/countries/:${req.params.country}?include=timeline`
-  )
+  console.log(req.params.country);
+  fetch(`http://corona-api.com/countries/US`)
     .then((response) => response.json())
     .then((json) => {
       console.log(json);
