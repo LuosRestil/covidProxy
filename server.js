@@ -18,9 +18,9 @@ app.get("/", (req, res) => {
   return res.send({ error: "not found" });
 });
 
-app.get("/fetch:country", (req, res) => {
+app.get("/fetch/:country", (req, res) => {
   console.log(req.params.country);
-  fetch(`http://corona-api.com/countries/US`)
+  fetch(`http://corona-api.com/countries/${req.params.country}`)
     .then((response) => response.json())
     .then((json) => {
       return res.send(json);
