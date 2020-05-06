@@ -10,7 +10,10 @@ app.use(
 );
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://www.see-the-curve.netlify.app"
+  );
   next();
 });
 
@@ -20,7 +23,9 @@ app.get("/", (req, res) => {
 
 app.get("/fetch/:country", (req, res) => {
   console.log(req.params.country);
-  fetch(`http://corona-api.com/countries/${req.params.country}`)
+  fetch(
+    `https://api.thevirustracker.com/free-api?countryTimeline=${req.params.country}`
+  )
     .then((response) => response.json())
     .then((json) => {
       return res.send(json);
