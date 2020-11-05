@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 app.get("/fetch/:country", (req, res) => {
   console.log(req.params.country);
   fetch(
-    `https://disease.sh/v3/covid-19/historial/${req.params.country}?lastdays=all`
+    `https://disease.sh/v3/covid-19/historical/${req.params.country}?lastdays=all`
   )
     .then((response) => response.json())
     .then((json) => {
